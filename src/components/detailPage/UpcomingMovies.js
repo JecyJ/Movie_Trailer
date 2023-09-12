@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import UpcomingMovieCard from "./UpcomingMovieCard";
 import { BiLeftArrow, BiRightArrow } from 'react-icons/bi'
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import MovieCards from "./MovieCards";
 
 const UpcomingMovies = () => {
   const API_URL = "https://api.themoviedb.org/3/";
@@ -46,17 +45,15 @@ const UpcomingMovies = () => {
 
 
   const renderUpcomingMovies = () => (
-    <AnimatePresence mode='wait'>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4" key={currentPage}>
-        {upcomingMovies.map((movie) => (
-          <div key={movie.id}>
-          <a href={`/MovieDetails`}>
-            <UpcomingMovieCard movie={movie} />
-            </a>
-          </div>
-        ))}
-      </div>
-    </AnimatePresence>
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4" key={currentPage}>
+      {upcomingMovies.map((movie) => (
+        <div key={movie.id}>
+          <Link to={`/movieDetails/` + movie.id}>
+            <MovieCards movie={movie} />
+          </Link>
+        </div>
+      ))}
+    </div>
   );
 
   
@@ -73,29 +70,23 @@ const UpcomingMovies = () => {
             {renderUpcomingMovies()}
           </div>
           <div className="flex space-x-3 pt-3">
-            <motion.div
+            <div
               className="flex justify-center items-center text-orange-500 cursor-pointer"
               style={{ zIndex: 1 }}              
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              transition={{ duration: 0.3 }}
             >
               <NavLink to={`/?page=${currentPage - 1}`}>
                 <p onClick={handlePrev}><BiLeftArrow size={20} /></p>
               </NavLink>
-            </motion.div>
+            </div>
             <p className="text-white">{currentPage}</p>
-            <motion.div
+            <div
               className="flex justify-center items-center text-orange-500 cursor-pointer"
-              style={{ zIndex: 1 }}              
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              transition={{ duration: 0.3 }}
+              style={{ zIndex: 1 }}
             >
               <NavLink to={`/?page=${currentPage + 1}`}>
                 <p onClick={handleNext}><BiRightArrow size={20} /></p>
               </NavLink>
-            </motion.div>
+            </div>
           </div>
         </div>
       </div>

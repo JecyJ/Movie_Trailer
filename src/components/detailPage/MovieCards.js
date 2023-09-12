@@ -4,7 +4,7 @@ import CustomImageComponent from "../CustomImageComponent";
 const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w500";
 
 
-const UpcomingMovieCard = ({ movie }) => {
+const MovieCards = ({ movie }) => {
   const ratingColor = movie.vote_average >= 5 ? "text-green-600" : "text-red-600";
 
   return (
@@ -30,4 +30,4 @@ const UpcomingMovieCard = ({ movie }) => {
   );
 };
 
-export default UpcomingMovieCard;
+export default MovieCards;

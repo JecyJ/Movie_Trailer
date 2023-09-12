@@ -5,21 +5,19 @@ const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w500";
 const MovieCard = ({movie}) => {
   return (
     <section className="w-[400px] m-auto h-auto my-4">
-      <a href="/Trending">
-        <div className="space-y-3">
-          <CustomImageComponent
-            className="border rounded-3xl w-auto sm:w-auto"
-            src={`${IMAGE_BASE_URL}${movie.backdrop_path}`}
-            alt="/"
-            width={1000}
-            height={1000}
-          />
-          <div className="text-white">
-            <h1 className="text-center text-lg">{movie.title}</h1>
-            <h1 className="text-center text-lg">{movie.release_date}</h1>
-          </div>
+      <div className="space-y-3">
+        <CustomImageComponent
+          className="border rounded-3xl w-auto sm:w-auto"
+          src={`${IMAGE_BASE_URL}${movie.backdrop_path}`}
+          alt="/"
+          width={1000}
+          height={1000}
+        />
+        <div className="text-white">
+          <h1 className="text-center text-lg">{movie.title}</h1>
+          <h1 className="text-center text-lg">{movie.release_date}</h1>
         </div>
-      </a>
+      </div>
     </section>
   );
 };

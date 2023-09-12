@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import MovieCard from "./MovieCard";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import '@splidejs/react-splide/css';
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   const [movies, setMovies] = useState([]);  
@@ -30,7 +31,7 @@ const Hero = () => {
 
 
   return (
-    <section className="relative z-[-2] w-full h-auto py-5">
+    <section className="w-full h-auto py-5">
       <div className="max-w-[400px] sm:max-w-[600px] md:max-w-[800px] lg:max-w-[1200px] m-auto relative">
         <h1 className="text-3xl text-center text-red-500 font-bold">Trending Movies</h1>
         <Splide 
@@ -38,12 +39,16 @@ const Hero = () => {
             drag:'free',
             perPage:1,
             arrows:'true',
-            pagination:false
+            pagination:false,
+            autoplay: "pause",
+            type: 'loop',
           }}
         >
         {movies.map((movie) => (
           <SplideSlide key={movie.id}>
-            <MovieCard movie={movie} />
+            <Link to={`/movieDetails/` + movie.id}>
+              <MovieCard movie={movie} />
+            </Link>
           </SplideSlide>          
         ))}
         </Splide>

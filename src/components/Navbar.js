@@ -1,4 +1,3 @@
-// import { Dancing_Script, Pacifico, Unna } from "next/font/google";
 import {FcFilmReel} from 'react-icons/fc'
 
 
