@@ -7,6 +7,7 @@ const Hero = () => {
   const [movies, setMovies] = useState([]);  
 
   useEffect(() => {
+    
 
     const fetchMovies = async () => {
       try {
