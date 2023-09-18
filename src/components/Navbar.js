@@ -30,7 +30,8 @@ const Navbar = () => {
                 size={25}
                 className='animate-pulse cursor-pointer'
                 onMouseEnter={() => setIsHovered(true)}
-                onClick={() => setIsHovered(false)}
+                onClick={() => setIsHovered((prevIsHovered) => !prevIsHovered)}
+                // onClick={() => setIsHovered(false)}
                 // onMouseLeave={() => setIsHovered(false)}
               />
               {isHovered && (
