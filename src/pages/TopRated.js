@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 import {Link, NavLink} from 'react-router-dom';
 import { BiLeftArrow, BiRightArrow } from 'react-icons/bi'
-import MovieCards from "../detailPage/MovieCards";
+import requests from "../Request";
+import Cards from "../components/Cards";
+import Search from "../components/Search";
 
 const TopRated = () => {
-  const API_URL = "https://api.themoviedb.org/3/";
   const [topRated, setTopRated] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
@@ -13,7 +14,7 @@ const TopRated = () => {
   const fetchTopRated = async (page) => {
     try {
       const response = await fetch(
-        `${API_URL}movie/top_rated?language=en-US&api_key=${process.env.REACT_APP_API_KEY}&page=${page}`
+        `${requests.requestToprated}&page=${page}`
       );
       if (response.ok) {
         const data = await response.json();
@@ -45,11 +46,11 @@ const TopRated = () => {
 
 
   const renderTopRated = () => (
-    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4" key={currentPage}>
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-8" key={currentPage}>
       {topRated.map((movie) => (
         <div key={movie.id}>
           <Link to={`/movieDetails/` + movie.id}>
-            <MovieCards movie={movie} />
+            <Cards movie={movie} />
           </Link>
         </div>
       ))}
@@ -60,12 +61,13 @@ const TopRated = () => {
 
 
   return (
-    <section className="w-full h-auto my-3">
-      <div className="max-w-[400px] sm:max-w-[600px] md:max-w-[800px] lg:max-w-[1200px] m-auto">
+    <section className="w-full h-auto pt-28 md:pt-14">
+      <div className="max-w-[400px] sm:max-w-[600px] md:max-w-[800px] lg:max-w-[1220px] m-auto">
         <h1 className="text-xl text-center text-white font-bold pb-5">
           TopRated Movies
         </h1>
-        <div className="flex flex-col items-center justify-center space-x-4">
+        <Search />
+        <div className="flex flex-col items-center justify-center mt-9 space-x-4">
           <div className="flex overflow-x-auto">
             {renderTopRated()}
           </div>

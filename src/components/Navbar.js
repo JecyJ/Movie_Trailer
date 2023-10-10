@@ -21,7 +21,7 @@ const Navbar = () => {
               <Link to={'/movies'}>
                 <h2>Movies</h2>
               </Link>
-              <Link to={'/movies'}>
+              <Link to={'/toprated'}>
                 <h2>Top Rated</h2>
               </Link>
               <Link to={'/series'}>
@@ -47,6 +47,10 @@ const Navbar = () => {
                   <Link to={'/movies'}>
                     <motion.h2
                     whileHover={{scale:1.1, transition:{duration:0.2}}}>Movies</motion.h2>
+                  </Link>
+                  <Link to={'/toprated'}>
+                    <motion.h2
+                    whileHover={{scale:1.1, transition:{duration:0.2}}}>Film</motion.h2>
                   </Link>
                   <Link to={'/series'}>
                     <motion.h2
