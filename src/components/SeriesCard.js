@@ -8,7 +8,7 @@ const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w500";
 
 const SeriesCard = ({ movie }) => {
   const ratingColor = movie.vote_average >= 5 ? "text-green-600" : "text-red-600";
-  const [like, setLike] = useState(false)
+  const [like] = useState(false)
 
   return (
     <section className="w-full h-auto">    

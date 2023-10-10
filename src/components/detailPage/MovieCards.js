@@ -8,7 +8,7 @@ const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w500";
 
 const MovieCards = ({ movie }) => {
   const ratingColor = movie.vote_average >= 5 ? "text-green-600" : "text-red-600";
-  const [like, setLike] = useState(false)
+  const [like] = useState(false)
 
   return (
     <section className="w-full h-full">    
@@ -22,7 +22,7 @@ const MovieCards = ({ movie }) => {
             height={1000}
           />
           <div className='hover:bg-black/80 absolute top-0 left-0 w-full h-full opacity-0 hover:opacity-100 text-white'>
-            <h1 className="text-white whitespace-normal  text-xs md:text-base px-2 pt-2 pb-2">{movie.original_title}</h1>
+            <h1 className="text-white whitespace-normal text-xs md:text-base px-2 pt-2 pb-2">{movie.original_title}</h1>
 
             <div className="flex justify-between px-2">
               <h1 className="flex items-center text-white text-xs">

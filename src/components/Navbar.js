@@ -22,7 +22,7 @@ const Navbar = () => {
                 <h2>Movies</h2>
               </Link>
               <Link to={'/toprated'}>
-                <h2>Top Rated</h2>
+                <h2>Film</h2>z
               </Link>
               <Link to={'/series'}>
                 <h2>Series</h2>
