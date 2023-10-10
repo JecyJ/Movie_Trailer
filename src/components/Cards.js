@@ -1,21 +1,21 @@
 import {AiTwotoneStar} from 'react-icons/ai'
-import CustomImageComponent from "../CustomImageComponent";
 import {FaHeart, FaRegHeart} from 'react-icons/fa'
 import { useState } from 'react';
+import CustomImageComponent from './CustomImageComponent';
 
 const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w500";
 
 
-const MovieCards = ({ movie }) => {
+const Cards = ({ movie }) => {
   const ratingColor = movie.vote_average >= 5 ? "text-green-600" : "text-red-600";
   const [like, setLike] = useState(false)
 
   return (
-    <section className="w-full h-full">    
+    <section className="w-full h-auto">    
         <div className="relative w-[150px] sm:w-[200px] md:w-[240px] lg:w-[280px] cursor-pointer border border-slate-700 shadow-2xl">
           
           <CustomImageComponent
-            className="w-[150px] sm:w-[200px] md:w-[300px] border border-slate-700"
+            className="w-[150px] sm:w-[200px] md:w-[240px] lg:w-[280px] border border-slate-700"
             src={`${IMAGE_BASE_URL}${movie.poster_path}`}
             alt="/"
             width={1000}
@@ -41,4 +41,4 @@ const MovieCards = ({ movie }) => {
   );
 };
 
-export default MovieCards;
+export default Cards;

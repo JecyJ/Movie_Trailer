@@ -2,22 +2,23 @@ import { useEffect, useState } from "react";
 import MovieCard from "./MovieCard";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import '@splidejs/react-splide/css';
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
+import requests from "../../Request";
 
 const Hero = () => {
   const [movies, setMovies] = useState([]);  
+  const [randomMovieIndex, setRandomMovieIndex] = useState(null);
+
 
   useEffect(() => {
-    
-
     const fetchMovies = async () => {
       try {
-        const response = await fetch(
-          `https://api.themoviedb.org/3/trending/movie/week?language=en-US&api_key=${process.env.REACT_APP_API_KEY}`
-        );
+        const response = await fetch(requests.requestTrending);
         if (response.ok) {
           const data = await response.json();
           setMovies(data.results);
+          const randomIndex = Math.floor(Math.random() * data.results.length);
+          setRandomMovieIndex(randomIndex);
         } else {
           console.error("Failed to fetch movies:", response.status);
         }
@@ -31,25 +32,22 @@ const Hero = () => {
 
 
   return (
-    <section className="w-full h-auto py-5">
-      <div className="max-w-[400px] sm:max-w-[600px] md:max-w-[800px] lg:max-w-[1200px] m-auto relative">
-        <h1 className="text-3xl text-center text-red-500 font-bold">Trending Movies</h1>
+    <section className="w-full h-[380px] md:h-full">
+      <div className=" relative">
         <Splide 
           options={{
             drag:'free',
             perPage:1,
-            arrows:'true',
+            arrows:false,
             pagination:false,
-            autoplay: "pause",
+            autoplay: "play",
             type: 'loop',
           }}
         >
-        {movies.map((movie) => (
+        {randomMovieIndex !== null && movies.map((movie) => (
           <SplideSlide key={movie.id}>
-            <Link to={`/movieDetails/` + movie.id}>
-              <MovieCard movie={movie} />
-            </Link>
-          </SplideSlide>          
+            <MovieCard movie={movie} />
+          </SplideSlide>
         ))}
         </Splide>
       </div>
@@ -58,3 +56,8 @@ const Hero = () => {
 };
 
 export default Hero;
+
+// <Link to={`/movieDetails/` + movie.id}>
+// </Link>
+
+// const displayMovie = movies[Math.floor(Math.random() * movies.length)]

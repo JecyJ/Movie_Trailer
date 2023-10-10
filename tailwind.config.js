@@ -8,8 +8,12 @@ module.exports = {
       'pacifico': 'Pacifico, cursive, sans-serif',
       'unna': 'Unna, serif'
     },
-    extend: {},
+    extend: {
+      scrollbar: ['rounded-lg', 'tailwind-scrollbar-hide'],
+    },
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-scrollbar-hide'),
+  ],
 }
 

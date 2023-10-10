@@ -37,7 +37,7 @@ const MovieDetails = () => {
 
 
   return (
-    <section className="w-full h-auto my-10 max-w-[400px] sm:max-w-[600px] md:max-w-[800px] m-auto">
+    <section className="w-full h-auto pt-20 max-w-[400px] sm:max-w-[600px] md:max-w-[800px] m-auto">
       <div className="flex flex-col items-center justify-center space-y-4">
         <div className="space-y-2">
           <CustomImageComponent
