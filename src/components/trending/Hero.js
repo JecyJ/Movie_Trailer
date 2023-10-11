@@ -44,7 +44,7 @@ const Hero = () => {
             type: 'loop',
           }}
         >
-        {randomMovieIndex !== null && movies.map((movie) => (
+        {randomMovieIndex && movies.map((movie) => (
           <SplideSlide key={movie.id}>
             <MovieCard movie={movie} />
           </SplideSlide>

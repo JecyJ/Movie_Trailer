@@ -3,9 +3,8 @@ import MovieCards from "./detailPage/MovieCards";
 import { Link } from "react-router-dom";
 
 
-const Rows = ({title, fetchURL}) => {
-  const [movies, setMovies] = useState([]);  
-  // const [randomMovieIndex, setRandomMovieIndex] = useState(null);
+const Rows = ({title, fetchURL, route}) => {
+  const [movies, setMovies] = useState([]);
 
 
   useEffect(() => {
@@ -15,8 +14,6 @@ const Rows = ({title, fetchURL}) => {
         if (response.ok) {
           const data = await response.json();
           setMovies(data.results);
-          // const randomIndex = Math.floor(Math.random() * data.results.length);
-          // setRandomMovieIndex(randomIndex);
         } else {
           console.error("Failed to fetch movies:", response.status);
         }
@@ -45,7 +42,7 @@ const Rows = ({title, fetchURL}) => {
     <section>
         <div className="flex items-center justify-between text-white px-3">
             <h1 className="font-bold md:text-xl p-4">{title}</h1>
-            <Link to={fetchURL === "/movies" ? "/movies" : fetchURL === "/toprated" ? "/toprated" : "/series"} className="text-blue-500 hover:text-blue-900 animate-bounce">See More</Link>            
+            <Link to={route} className="text-blue-500 hover:text-blue-900 animate-bounce">See More</Link>            
         </div>
         <div className="text-white overflow-x-auto">
           {renderUpcomingMovies()}
