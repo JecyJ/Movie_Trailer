@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { BiLeftArrow, BiRightArrow } from 'react-icons/bi'
 import { Link, NavLink } from "react-router-dom";
-import Search from "../components/Search";
+import Search from "./Search";
 import requests from "../Request";
 import SeriesCard from "../components/SeriesCard";
 
@@ -64,7 +64,7 @@ const Series = () => {
         <h1 className="text-xl text-center text-white font-bold pb-5">
           Series
         </h1>
-        <Search />
+        <Search  mediaType="tv" />
         <div className="flex flex-col items-center justify-center mt-9 space-x-4">
           {renderMovies()}
           <div className="flex space-x-3 pt-3">

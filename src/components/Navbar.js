@@ -46,18 +46,21 @@ const Navbar = () => {
                 >
                   <Link to={'/movies'}>
                     <motion.h2
+                    onClick={() => setIsHovered((prevIsHovered) => !prevIsHovered)}
                     whileHover={{scale:1.1, transition:{duration:0.2}}}
                     className='hover:text-blue-900'
                     >Movies</motion.h2>
                   </Link>
                   <Link to={'/toprated'}>
                     <motion.h2
+                    onClick={() => setIsHovered((prevIsHovered) => !prevIsHovered)}
                     whileHover={{scale:1.1, transition:{duration:0.2}}}
                     className='hover:text-blue-900'
                     >Film</motion.h2>
                   </Link>
                   <Link to={'/series'}>
                     <motion.h2
+                    onClick={() => setIsHovered((prevIsHovered) => !prevIsHovered)}
                      whileHover={{scale:1.1, transition:{duration:0.2}}}
                      className='hover:text-blue-900'
                      >Series</motion.h2>
