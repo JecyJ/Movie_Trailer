@@ -5,6 +5,10 @@ import Movies from './Movies';
 import Series from './Series';
 import TopRated from './TopRated';
 import Searched from './Searched';
+import Login from './Login';
+import SignUp from './SignUp';
+import Account from './Account';
+import ProtectedRoute from '../components/ProtectedRoute';
 
 
 const Pages = () => {
@@ -16,6 +20,15 @@ const Pages = () => {
         <Route path='/series' element={<Series />} />
         <Route path='/movieDetails/:details' element={<MovieDetails />} />
         <Route path="/searched/:mediatype/:search" element={<Searched />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/account" element=
+          {
+            <ProtectedRoute>
+              <Account />
+            </ProtectedRoute>
+          } 
+        />
     </Routes>
   )
 }
