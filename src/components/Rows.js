@@ -44,9 +44,7 @@ const Rows = ({title, fetchURL, route, rowId}) => {
       <div id={"slider" + rowId} className="w-full h-auto overflow-x-scroll whitespace-nowrap scroll-smooth scrollbar-hide relative">
         {movies.map((movie) => (
           <div key={movie.id} className="inline-block mr-4">
-            <Link to={`/movieDetails/${movie.id}`}>
-              <MovieCards movie={movie} />
-            </Link>
+            <MovieCards movie={movie} />
           </div>
         ))}
       </div>

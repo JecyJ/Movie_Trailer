@@ -62,7 +62,7 @@ const Trailer = () => {
   const opts = display('max-w-[400px]');
 
   return (
-    <section className="w-full h-auto my-10 max-w-[400px] sm:max-w-[600px] md:max-w-[800px] m-auto">
+    <section className="w-full h-auto py-20 mb-10 max-w-[400px] sm:max-w-[600px] md:max-w-[800px] m-auto">
       <div className="flex flex-col items-center justify-center space-y-4">        
         <h2 className="text-white text-xl">Movie Trailer</h2>
         {trailerKey && (

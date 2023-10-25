@@ -9,6 +9,7 @@ import Login from './Login';
 import SignUp from './SignUp';
 import Account from './Account';
 import ProtectedRoute from '../components/ProtectedRoute';
+import Trailer from './Trailer';
 
 
 const Pages = () => {
@@ -19,6 +20,7 @@ const Pages = () => {
         <Route path='/toprated' element={<TopRated />} />
         <Route path='/series' element={<Series />} />
         <Route path='/movieDetails/:details' element={<MovieDetails />} />
+        <Route path='/trailer/:details' element={<Trailer />} />
         <Route path="/searched/:mediatype/:search" element={<Searched />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
