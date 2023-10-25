@@ -19,7 +19,7 @@ const Login = () => {
         // setPasswordError("");       
 
         try {
-            await logIn(email, password)
+            await logIn(email, password, user)
             navigate('/')
             setEmail("")
             setPassword("")
@@ -67,7 +67,7 @@ const Login = () => {
                                 <Link to="signup">
                                     Sign Up
                                 </Link>
-                            </span></p>                        
+                            </span></p>                   
                         </div>
                     </form>                
                 </div>

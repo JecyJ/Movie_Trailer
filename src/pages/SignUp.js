@@ -20,7 +20,7 @@ const SignUp = () => {
             }, 2000)
         }
         try {
-            await signUp(email, password)
+            await signUp(email, password, user)
             navigate('/')
             setEmail("")
             setPassword("")

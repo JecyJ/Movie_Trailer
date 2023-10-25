@@ -1,7 +1,7 @@
 import {AiTwotoneStar} from 'react-icons/ai'
 import CustomImageComponent from "../CustomImageComponent";
 import {FaHeart, FaRegHeart} from 'react-icons/fa'
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import { UserAuth } from '../context/AuthContext';
 import { db } from '../../pages/firebase';
 import { arrayUnion, doc, updateDoc } from 'firebase/firestore';
@@ -14,7 +14,7 @@ const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w500";
 const MovieCards = ({ movie }) => {
   const ratingColor = movie.vote_average >= 5 ? "text-green-600" : "text-red-600";
   const [like, setLike] = useState(false)
-  const [saved, setSaved] = useState(false)
+  const [ setSaved] = useState(false)
   const {user} = UserAuth();
   
 
