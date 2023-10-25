@@ -7,7 +7,7 @@ const SignUp = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [passwordError, setPasswordError] = useState("")
-    const {user, signUp} = UserAuth()
+    const {signUp} = UserAuth()
     const navigate = useNavigate()
 
 
@@ -20,7 +20,7 @@ const SignUp = () => {
             }, 2000)
         }
         try {
-            await signUp(email, password, user)
+            await signUp(email, password)
             navigate('/')
             setEmail("")
             setPassword("")

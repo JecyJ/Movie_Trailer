@@ -9,7 +9,7 @@ const Login = () => {
     const [password, setPassword] = useState("")
     const [error, setError] = useState("");
     // const [passwordError, setPasswordError] = useState("");
-    const {user, logIn} = UserAuth("")
+    const {logIn} = UserAuth("")
     const navigate = useNavigate()
 
     const handleLogin = async(e) => {
@@ -19,7 +19,7 @@ const Login = () => {
         // setPasswordError("");       
 
         try {
-            await logIn(email, password, user)
+            await logIn(email, password)
             navigate('/')
             setEmail("")
             setPassword("")

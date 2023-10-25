@@ -9,7 +9,7 @@ const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/original";
 
 const MovieCard = ({movie}) => {
   const [like, setLike] = useState(false)
-  const [ setSaved] = useState(false)
+  const [ ,setSaved] = useState(false)
   const {user} = UserAuth();
 
   const saveShow = async () => {
