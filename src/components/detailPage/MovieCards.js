@@ -19,8 +19,6 @@ const MovieCards = ({ movie }) => {
   
 
   const saveShow = async (e) => {
-    // e.stopPropagation();
-    // e.preventDefault();
     if (user && user.uid) {
       setLike(!like);
       setSaved(true);
@@ -47,9 +45,8 @@ const MovieCards = ({ movie }) => {
   };
 
   return (
-    <section className="w-full h-full">
-      
-      <Link to={`/movieDetails/${movie.id}`}>        
+    <section className="w-full h-full py-6">
+      <Link to={`/movieDetails/${movie.id}`}>                 
         <div className="relative w-[150px] sm:w-[200px] md:w-[240px] lg:w-[280px] cursor-pointer border border-slate-700 shadow-2xl">          
           <CustomImageComponent
             className="w-[150px] sm:w-[200px] md:w-[300px] border border-slate-700"
@@ -67,13 +64,13 @@ const MovieCards = ({ movie }) => {
               </h1>
               <h1 className="text-white text-xs">{movie.release_date}</h1>
             </div>            
-            <p onClick={saveShow} className='w-full h-full absolute top-0 flex items-center justify-center'> 
-              {like ? <FaHeart size={20} className='fill-red-500' /> : <FaRegHeart size={20} />}           
-            </p>
+            
           </div>          
         </div>
-      </Link>
-      
+      </Link> 
+      <p onClick={saveShow} className='w-full h-full relative -top-10 left-2'> 
+        {like ? <FaHeart size={20} className='fill-red-500' /> : <FaRegHeart size={20} />}           
+      </p>
     </section>
   );
 };

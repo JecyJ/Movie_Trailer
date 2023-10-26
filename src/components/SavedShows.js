@@ -88,13 +88,14 @@ const SavedShows = () => {
                       </h1>
                       <h1 className="text-white text-xs">{movie.release}</h1>
                     </div>
-                    <p onClick={() => deleteShow(movie.id)} className="absolute text-gray-500 top-2 right-2">
+                    <p onClick={() => deleteShow(movie.id)} className="absolute text-red-500 top-2 right-2">
                       <AiOutlineClose size={20} />
                     </p>
                   </div>
                 </div>
               </div>
             </Link>
+            
           </div>
         ))}
       </div>
@@ -108,3 +109,5 @@ const SavedShows = () => {
 }
 
 export default SavedShows;
+
+// -top-[220px] sm:-top-[295px] md:-top-[410px] left-[125px] sm:left-[175px] md:left-[255px]

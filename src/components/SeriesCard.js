@@ -5,6 +5,7 @@ import CustomImageComponent from './CustomImageComponent';
 import { arrayUnion, doc, updateDoc } from 'firebase/firestore';
 import { UserAuth } from './context/AuthContext';
 import { db } from '../pages/firebase';
+import { Link } from 'react-router-dom';
 
 
 const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w500";
@@ -17,8 +18,6 @@ const SeriesCard = ({ movie }) => {
   const {user} = UserAuth();
 
   const saveShow = async (e) => {
-    // e.stopPropagation();
-    // e.preventDefault();
     if (user && user.uid) {
       setLike(!like);
       setSaved(true);
@@ -44,29 +43,9 @@ const SeriesCard = ({ movie }) => {
     }
   };
 
-
-  // const saveShow = async () => {
-  //   if (user && user.uid) {
-  //     setLike(!like);
-  //     setSaved(true);
-
-  //     const userDocRef = doc(db, "users", user.uid);
-
-  //     // Update the user's Firestore document using arrayUnion to avoid duplicates
-  //     await updateDoc(userDocRef, {
-  //       savedShows: arrayUnion({
-  //         id: movie.id,
-  //         title: movie.original_title,
-  //         img: movie.poster_path,
-  //       }),
-  //     });
-  //   } else {
-  //     alert("Please log in to save a movie");
-  //   }
-  // };
-
   return (
-    <section className="w-full h-auto">    
+    <section className="w-full h-auto py-6">
+      <Link to={`/movieDetails/` + movie.id}>              
         <div className="relative w-[150px] sm:w-[200px] md:w-[240px] lg:w-[280px] cursor-pointer border border-slate-700 shadow-2xl">
           
           <CustomImageComponent
@@ -86,12 +65,12 @@ const SeriesCard = ({ movie }) => {
               </h1>
               <h1 className="text-white text-xs">{movie.first_air_date}</h1>
             </div>
-
-            <p onClick={saveShow} className='w-full h-full absolute top-0 flex items-center justify-center'> 
-              {like ? <FaHeart size={20} className='fill-red-500' /> : <FaRegHeart size={20} />}           
-            </p>
           </div>          
         </div>
+      </Link>
+      <p onClick={saveShow} className='w-full h-full relative -top-10 left-2 text-white'> 
+        {like ? <FaHeart size={20} className='fill-red-500' /> : <FaRegHeart size={20} />}           
+      </p>
     </section>
   );
 };

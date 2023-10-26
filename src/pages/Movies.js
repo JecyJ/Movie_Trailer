@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { BiLeftArrow, BiRightArrow } from 'react-icons/bi'
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import Search from "./Search";
 import requests from "../Request";
 import Cards from "../components/Cards";
@@ -47,15 +47,11 @@ const Movies = () => {
     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-8" key={currentPage}>
       {Movies.map((movie) => (
         <div key={movie.id}>
-          <Link to={`/movieDetails/` + movie.id}>
-            <Cards movie={movie} />
-          </Link>
+          <Cards movie={movie} />
         </div>
       ))}
     </div>
-  );
-
-  
+  ); 
 
 
   return (
