@@ -19,7 +19,7 @@ const MovieCards = ({ movie }) => {
   
 
   const saveShow = async (e) => {
-    e.stopPropagation();
+    // e.stopPropagation();
     // e.preventDefault();
     if (user && user.uid) {
       setLike(!like);

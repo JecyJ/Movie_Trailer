@@ -16,7 +16,7 @@ const Cards = ({ movie }) => {
   const {user} = UserAuth();
 
   const saveShow = async (e) => {
-    e.stopPropagation();
+    // e.stopPropagation();
     // e.preventDefault();
     if (user && user.uid) {
       setLike(!like);
